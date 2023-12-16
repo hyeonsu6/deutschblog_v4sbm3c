@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.german.GermanDAOInter">
+	<select id="checkID" resultType="int" parameterType="String">
+		SELECT
+		COUNT(id) as cnt
+		FROM german
+		WHERE id=#{id}
+	</select>
+
+	<insert id="create" parameterType="dev.mvc.german.GermanVO">
+		INSERT INTO
+		german(germanno,
+		id, passwd, mname, tel, zipcode, address1,
+		address2, mdate, grade)
+		VALUES (german_seq.nextval, #{id},
+		#{passwd}, #{mname}, #{tel},
+		#{zipcode},
+		#{address1},
+		#{address2}, sysdate, #{grade})
+	</insert>
+
+	<select id="list" resultType="dev.mvc.german.GermanVO">
+		SELECT germanno, id, passwd,
+		mname,
+		tel, zipcode, address1, address2, mdate,
+		grade
+		FROM german
+		ORDER BY grade
+		ASC, id ASC
+	</select>
+
+	<!-- germanno로 회원 정보 조회 -->
+	<select id="read" resultType="dev.mvc.german.GermanVO"
+		parameterType="int">
+		SELECT germanno, id, passwd, mname, tel, zipcode,
+		address1, address2, mdate,
+		grade
+		FROM german
+		WHERE germanno =
+		#{germanno}
+	</select>
+
+	<!-- id(이메일)로 회원 정보 조회 -->
+	<select id="readById" resultType="dev.mvc.german.GermanVO"
+		parameterType="String">
+		SELECT germanno, id, passwd, mname, tel, zipcode,
+		address1, address2, mdate,
+		grade
+		FROM german
+		WHERE id = #{id}
+	</select>
+
+	<update id="update" parameterType="dev.mvc.german.GermanVO">
+		UPDATE german
+		SET id=#{id},
+		mname=#{mname}, tel=#{tel}, zipcode=#{zipcode},
+		address1=#{address1},
+		address2=#{address2}
+		WHERE germanno=#{germanno}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM german
+		WHERE
+		germanno=#{germanno}
+	</delete>
+
+	<!-- 로그인 -->
+	<select id="login" resultType="int" parameterType="HashMap">
+		SELECT COUNT(germanno) as cnt
+		FROM german
+		WHERE id=#{id} AND passwd=#{passwd}
+	</select>
+
+	<!-- 현재 패스워드 검사 -->
+	<select id="passwd_check" parameterType="HashMap"
+		resultType="int">
+		SELECT COUNT(germanno) as cnt
+		FROM german
+		WHERE germanno=#{germanno} AND passwd=#{passwd}
+	</select>
+
+	<!-- 패스워드 변경 -->
+	<update id="passwd_update" parameterType="HashMap">
+		UPDATE german
+		SET passwd=#{passwd}
+		WHERE germanno=#{germanno}
+	</update>
+
+	<!-- 아이디 찾기 -->
+	<select id="find_id" resultType="dev.mvc.german.GermanVO" parameterType="HashMap">
+		SELECT id
+		FROM german
+		WHERE germanno = #{germanno}
+		AND passwd = #{passwd}
+	</select>
+
+</mapper> 
+

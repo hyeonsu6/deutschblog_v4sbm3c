@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.notice.NoticeDAOInter">
+	<insert id="create" parameterType="dev.mvc.articles.ArticlesVO">
+		INSERT INTO NOTICE (noticeno, managerno, title, content, cnt, pw, word, gdate, file1, file1saved, thumb1,
+		size1, map, youtube, seq, visible, germanno)
+		VALUES (notice_seq.nextval, #{managerno}, #{title}, #{content}, #{cnt}, #{pw}, #{word}, #{gdate},
+		#{file1}, #{file1saved}, #{thumb1}, #{size1}, #{size1}, #{map}, #{seq}, #{visible}, #{germanno});
+	</insert>
+	
+	<!-- 모든 카테고리의 등록된 글목록 -->
+	<select id="list_all" resultType="dev.mvc.articles.ArticlesVO">
+		SELECT noticeno, managerno, title, content, cnt, pw, word, gdate, file1, file1saved, thumb1,
+		size1, map, youtube
+		file1,
+		file1saved, thumb1, size1
+		FROM articles
+		ORDER BY articlesno DESC
+	</select>
+
+
+</mapper>
