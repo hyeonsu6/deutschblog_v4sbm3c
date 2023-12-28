@@ -1,12 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, width=device-width" />
-<title>DeutschBlog</title>
+<title>DeutschBlog German</title>
 <link rel="shortcut icon" href="/images/germany.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -126,64 +127,65 @@ window.onload = function() {
 </head>
 <body>
 	<c:import url="/menu/top.do" />
-	<DIV class='title_line'>회원 정보 조회 및 수정(*: 필수)</DIV>
-	<DIV class='content_body'>
-		<ASIDE class="aside_right">
-			<A href="javascript:location.reload();">새로고침</A>
-			<span class='menu_divide'>│</span>
-			<A href='./create.do'>회원 가입</A>
-			<span class='menu_divide'>│</span>
-			<A href='./list.do'>목록</A>
-		</ASIDE>
+	<div class='title_line'>회원 정보 조회 및 수정(*: 필수)</div>
+
+	<div class='content_body'>
+		<aside class="aside_right">
+			<a href="javascript:location.reload();">새로고침</a>
+		</aside>
+
 		<div class='menu_line'></div>
 		<div style="width: 60%; margin: 0px auto">
-			<FORM name='frm' id='frm' method='POST' action='./update.do' class="">
+			<form name='frm' id='frm' method='POST' action='./update.do' class="">
 				<input type="hidden" name="germanno" value="${germanVO.germanno }">
-				<div class="form-group">
-					<%-- 줄이 변경되지 않는 패턴 --%>
-					<label>
+				<div class="form-group" style="margin-bottom: 15px;">
+					<label style="margin-right: 15px;">
 						아이디*:
 						<input type='text' class="form-control form-control-sm" name='id' id='id' value='${germanVO.id }'
 							required="required" placeholder="아이디*" autofocus="autofocus">
 					</label>
-					<button type='button' id="btn_checkID" onclick="checkID()" class="btn btn-primary btn-sm">중복확인</button>
+					<button type='button' id="btn_checkID" onclick="checkID()" class="btn btn-outline-warning btn-sm"
+						style="background-color: #583E26;">중복확인</button>
 					<span id='id_msg'></span>
 				</div>
-				<div class="form-group">
-					<%-- label의 크기에따라 input 태그의 크기가 지정되는 형태 --%>
-					<label>
+
+				<div class="form-group" style="margin-bottom: 15px;">
+					<label style="margin-right: 15px;">
 						성명*:
 						<input type='text' class="form-control form-control-sm" name='mname' id='mname' value='${germanVO.mname }'
 							required="required" placeholder="성명">
 					</label>
 					<span id='mname_msg'></span>
 				</div>
-				<div class="form-group">
-					<%-- label의 크기에따라 input 태그의 크기가 지정되는 형태, 줄이 변경되지 않는 패턴 --%>
-					<label>
+
+				<div class="form-group" style="margin-bottom: 15px;">
+					<label style="margin-right: 15px;">
 						전화 번호:
 						<input type='text' class="form-control form-control-sm" name='tel' id='tel' value='${germanVO.tel }'
 							required="required" placeholder="전화번호">
 					</label>
 					휴대폰번호를 '-'없이 입력해주세요.
 				</div>
-				<div class="form-group">
-					<label>
+
+				<div class="form-group" style="margin-bottom: 15px;">
+					<label style="margin-right: 15px;">
 						우편 번호:
 						<input type='text' class="form-control form-control-sm" name='zipcode' id='zipcode' value='${germanVO.zipcode }'
 							placeholder="우편번호">
 					</label>
-					<button type="button" id="btn_DaumPostcode" onclick="DaumPostcode()" class="btn btn-primary btn-sm">우편번호
-						찾기</button>
+					<button type="button" id="btn_DaumPostcode" onclick="DaumPostcode()" class="btn btn-outline-warning btn-sm"
+						style="background-color: #583E26;">우편번호 찾기</button>
 				</div>
-				<div class="form-group">
-					<label style="width: 100%;">주소:</label>
+
+				<div class="form-group" style="margin-bottom: 15px;">
+					<label style="width: 100%; margin-right: 15px;">주소:</label>
 					<%-- label의 크기를 변경하여 주소를 많이 입력받는 패턴 --%>
 					<input type='text' class="form-control form-control-sm" name='address1' id='address1' value='${germanVO.address1 }'
 						placeholder="주소">
 				</div>
-				<div class="form-group">
-					<label style="width: 100%;">상세 주소:</label>
+
+				<div class="form-group" style="margin-bottom: 15px;">
+					<label style="width: 100%; margin-right: 15px;">상세 주소:</label>
 					<input type='text' class="form-control form-control-sm" name='address2' id='address2' value='${germanVO.address2 }'
 						placeholder="상세 주소">
 				</div>
@@ -278,12 +280,14 @@ window.onload = function() {
 					<!-- ------------------------------ DAUM 우편번호 API 종료 ------------------------------ -->
 				</div>
 				<div class="form_input">
-					<button type="button" id='btn_send' onclick="send()" class="btn btn-primary btn-sm">저장</button>
-					<button type="button" onclick="history.back()" class="btn btn-primary btn-sm">취소</button>
+					<button type="button" id='btn_send' onclick="send()" class="btn btn-outline-warning btn-sm"
+						style="background-color: #583E26;">저장</button>
+					<button type="button" onclick="history.back()" class="btn btn-outline-warning btn-sm"
+						style="background-color: #583E26;">취소</button>
 				</div>
-			</FORM>
-		</DIV>
-	</DIV>
+			</form>
+		</div>
+	</div>
 	<jsp:include page="../menu/bottom.jsp" flush='false' />
 </body>
 </html>

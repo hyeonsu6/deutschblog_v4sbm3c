@@ -19,6 +19,13 @@ public interface TopicDAOInter {
 	public ArrayList<TopicVO> list_all();
 
 	/**
+	 * 회원들만 볼 수 있는 목록
+	 * 
+	 * @return
+	 */
+	public ArrayList<TopicVO> list_all_member();
+	
+	/**
 	 * 조회
 	 * 
 	 * @param topicno

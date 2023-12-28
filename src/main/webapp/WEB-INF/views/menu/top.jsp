@@ -1,44 +1,63 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 <style>
-.top_menu_link:link { /* 방문전 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: #FFF3B0;
-	font-weight: bold;
-	font-size: 14px;
+.icon_n {
+	width: 30px;
 }
 
-.top_menu_link:visited { /* 방문후 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: #FFF3B0;
-	font-weight: bold;
-	font-size: 14px;
+.top_menu_link:link, .top_menu_link:visited {
+	text-decoration: none;
+	color: #583E26;
+	font-size: 17px;
 }
 
-.top_menu_link:hover { /* A 태그에 마우스가 올라간 상태 */
-	text-decoration: none; /* 밑줄 출력 */
-	color: #FFF3B0;
-	font-size: 14px;
+.top_menu_link:hover {
+	text-decoration: blink;
+	color: #EC9704;
+	font-size: 19px;
+}
+
+.navbar-brand img {
+	transform: rotate(-15deg);
+	transition: transform 0.5s ease-in-out;
+}
+
+.navbar-brand img:hover {
+	transform: rotate(15deg);
 }
 </style>
+
 <div class='container_main'>
-	<div class='top_img'>
-		<div class="top_menu_label">DeutschBlog version 4.0</div>
+	<div style="text-align: right; margin-top: 10px; margin-right: 5px; margin-bottom: 5px;">
+		<c:choose>
+			<c:when test="${sessionScope.id == null}">
+				<a class="nav-link top_menu_link" href="/german/login.do" style="display: inline-block;">로그인</a>
+				<span style="color: #006400;">|</span>
+				<a class="nav-link top_menu_link" href="/german/create.do" style="display: inline-block;">회원가입</a>
+			</c:when>
+			<c:otherwise>
+				<a class="nav-link top_menu_link" href='/german/logout.do'>${sessionScope.id } 로그아웃</a>
+			</c:otherwise>
+		</c:choose>
 	</div>
-	<!-- <div class='top_img'></div> 종료 -->
-	<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #540B0E;">
+
+	<nav class="navbar navbar-expand-md navbar-dark"
+		style="background-color: #FDF5E6; padding-left: 120px; border-top: 2px solid #583E26; border-bottom: 3px solid #583E26; border-radius: 10px;">
 		<a class="navbar-brand" href="/">
-			<img src='/css/images/home.png' title="시작페이지" style='text-align: center; padding-left: 5px; width: 28px;'>
+			<img src='/css/images/home.png' title="시작페이지" style='display: block; margin-left: 15px; padding-left: 3px;'
+				class='icon_n'>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
 			aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle Navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
 				<%-- 게시판 목록 출력 --%>
@@ -46,49 +65,16 @@
 					<c:set var="topicno" value="${topicVO.topicno }" />
 					<c:set var="name" value="${topicVO.name }" />
 					<li class="nav-item">
+						<%-- 서브 메뉴가 없는 독립메뉴 --%>
 						<a class="nav-link top_menu_link" href="/articles/list_by_topicno.do?topicno=${topicVO.topicno }&now_page=1">${topicVO.name }</a>
 					</li>
 				</c:forEach>
+
 				<li class="nav-item">
 					<%-- 서브 메뉴가 없는 독립메뉴 --%>
+					<a class="nav-link top_menu_link" href="/topic/list_all_member.do">카테고리</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link top_menu_link dropdown-toggle" data-bs-toggle="dropdown" href="#">DeutschBlog</a>
-					<div class="dropdown-menu">
-						<c:choose>
-							<c:when test="${sessionScope.id == null }">
-								<a class="dropdown-item" href="/articles/list_all_german_gallery.do">DeutschBlog Gallery</a>
-								<a class="dropdown-item" href="/notice/list_all.do">[개발예정] 공지사항</a>
-								<a class="dropdown-item" href="/qna/list_all.do">[개발예정] 고객센터</a>
-							</c:when>
-							<c:otherwise>
-								<a class="dropdown-item" href="/articles/list_all_german_gallery.do">DeutschBlog Gallery</a>
-								<a class="dropdown-item" href="/notice/list_all.do">[개발예정] 공지사항</a>
-								<a class="dropdown-item" href="/qna/list_all.do">[개발예정] 고객센터</a>
-							</c:otherwise>
-						</c:choose>
-					</div>
-				</li>
-				<li class="nav-item dropdown">
-					<%-- 회원 서브 메뉴 --%>
-					<a class="nav-link top_menu_link dropdown-toggle" data-bs-toggle="dropdown" href="#">회원</a>
-					<div class="dropdown-menu">
-						<c:choose>
-							<c:when test="${sessionScope.id == null }">
-								<a class="dropdown-item" href="/german/create.do">회원 가입</a>
-								<a class="dropdown-item" href="#">아이디 찾기</a>
-								<a class="dropdown-item" href="#">비밀번호 찾기</a>
-							</c:when>
-							<c:otherwise>
-								<a class="dropdown-item" href="/german/read.do">가입 정보</a>
-								<a class="dropdown-item" href="/german/passwd_update.do">비밀번호 변경</a>
-								<a class="dropdown-item" href="/german/read.do">회원 정보 수정</a>
-								<a class="dropdown-item" href="javascript: alert('개발 예정')">로그인 내역</a>
-								<a class="dropdown-item" href="#">회원 탈퇴</a>
-							</c:otherwise>
-						</c:choose>
-					</div>
-				</li>
+
 				<c:choose>
 					<c:when test="${sessionScope.manager_id == null }">
 						<li class="nav-item">
@@ -98,28 +84,38 @@
 					<c:otherwise>
 						<li class="nav-item dropdown">
 							<%-- 관리자 서브 메뉴 --%>
-							<a class="nav-link top_menu_link dropdown-toggle" data-bs-toggle="dropdown" href="#">관리자</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href='/topic/list_all.do'>[전체] 카테고리</a>
-								<a class="dropdown-item" href="/articles/list_all.do">[전체] 컨텐츠</a>
-								<a class="dropdown-item" href="/articles/list_all_gallery.do">[관리자] Manager Gallery</a>
-								<a class="dropdown-item" href="/articles/list_all_german_gallery.do">[회원] DeutschBlog Gallery</a>
-								<a class="dropdown-item" href='/german/list.do'>회원 목록</a>
-								<a class="dropdown-item" href='/manager/logout.do'>관리자 ${sessionScope.manager_id } 로그아웃</a>
+							<a class="nav-link top_menu_link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: #EC9704;">관리자</a>
+							<div class="dropdown-menu top_menu_link">
+								<a class="dropdown-item top_menu_link" href='/topic/list_all.do'>[관리자] 전체 카테고리 목록</a>
+								<a class="dropdown-item top_menu_link" href='/articles/list_all.do'>[관리자] 전체 컨텐츠 목록</a>
+								<a class="dropdown-item top_menu_link" href="/articles/list_all_gallery.do">[관리자] 🖼️ 컨텐츠 갤러리</a>
+								<a class="dropdown-item top_menu_link" href='/german/list.do'>[관리자] 회원 목록</a>
+								<a class="dropdown-item top_menu_link" href='/login/list_all_alogin.do'>[관리자] 로그인 내역</a>
+								<a class="dropdown-item top_menu_link" href='/manager/logout.do'>[관리자] '${sessionScope.manager_id }' 로그아웃</a>
 							</div>
 						</li>
 					</c:otherwise>
 				</c:choose>
-				<li class="nav-item">
-					<%-- 서브 메뉴가 없는 독립메뉴 --%>
-					<c:choose>
-						<c:when test="${sessionScope.id == null}">
-							<a class="nav-link top_menu_link" href="/german/login.do">회원 로그인</a>
-						</c:when>
-						<c:otherwise>
-							<a class="nav-link top_menu_link" href='/german/logout.do'>${sessionScope.id } 로그아웃</a>
-						</c:otherwise>
-					</c:choose>
+
+				<li class="nav-item dropdown">
+					<%-- 회원 서브 메뉴 --%>
+					<a class="nav-link top_menu_link dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: #EC9704;">회원</a>
+					<div class="dropdown-menu top_menu_link">
+						<c:choose>
+							<c:when test="${sessionScope.id == null }">
+								<a class="dropdown-item top_menu_link" href="/german/create.do">회원 가입</a>
+								<a class="dropdown-item top_menu_link" href="#">아이디 찾기</a>
+								<a class="dropdown-item top_menu_link" href="#">비밀번호 찾기</a>
+							</c:when>
+							<c:otherwise>
+								<a class="dropdown-item top_menu_link" href="/german/read.do">[회원] 가입 정보</a>
+								<a class="dropdown-item top_menu_link" href="/german/read.do">[회원] 정보 수정</a>
+								<a class="dropdown-item top_menu_link" href="/german/passwd_update.do">[회원] 비밀번호 변경</a>
+								<a class="dropdown-item top_menu_link" href="/german/unsubscribe.do">[회원] 탈퇴</a>
+								<a class="dropdown-item top_menu_link" href="/login/list_mlogin_by_memberno.do">[회원] 로그인 내역</a>
+							</c:otherwise>
+						</c:choose>
+					</div>
 				</li>
 			</ul>
 		</div>

@@ -1,4 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<!-- 사용안함 -->
+
+<%-- <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="dev.mvc.topic.TopicVO"%>
 
 <!DOCTYPE html>
@@ -37,4 +39,4 @@ String name = topicVO.getName();
 	</DIV>
 	<jsp:include page="../menu/bottom.jsp" flush='false' />
 </body>
-</html>
+</html> --%>

@@ -1,4 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<!-- 사용안함 -->
+
+<%-- <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -9,8 +13,8 @@
 <title>http://localhost:9092/</title>
 <link rel="shortcut icon" href="/images/germany.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
-
 </head>
+
 <body>
 	<jsp:include page="../menu/top.jsp" flush='false' />
 	<div class='title_line' style="margin-top: 45px;">카테고리 등록</div>
@@ -28,4 +32,4 @@
 
 	<jsp:include page="../menu/bottom.jsp" flush='false' />
 </body>
-</html>
+</html> --%>

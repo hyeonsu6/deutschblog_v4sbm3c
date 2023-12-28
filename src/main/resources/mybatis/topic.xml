@@ -24,6 +24,11 @@
 	<select id="list_all" resultType="dev.mvc.topic.TopicVO">
 		SELECT topicno, name, cnt, gdate, seqno, visible FROM topic ORDER BY seqno ASC
 	</select>
+	
+	<!-- 회원만 볼 수 있는  목록, SQL -> topicVO -> ArrayList<TopicVO> return -->
+	<select id="list_all_member" resultType="dev.mvc.topic.TopicVO"> SELECT topicno,
+		name, cnt, gdate FROM topic ORDER BY topicno ASC
+	</select>
 
 	<!-- 비회원/회원 SELECT LIST -->
 	<select id="list_all_y" resultType="dev.mvc.topic.TopicVO">

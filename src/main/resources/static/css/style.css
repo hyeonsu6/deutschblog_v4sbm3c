@@ -1,17 +1,21 @@
-/* ver 2.0 */
-/* 모든 태그에 적용 */
-@import
-	url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap')
-	;
-
 * {
-	font-family: Nanum Myeongjo;
-	font-weight: 700px;
+	font-family: MBC1961GulimM;
+	font-weight: normal;
+	font-style: normal;
 	font-size: 16px;
 	margin: 0px; /* top right bottom left */
 	padding: 0px;
-	color: #555555;
-	font-size: 16px;
+	color: #583E26;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MBC1961GulimM';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .container_main {
@@ -19,17 +23,12 @@
 	margin: 10px auto;
 }
 
-/* 이미지 사용시 경로 지정
-  /css/images/top_image_1920.jpg
-  Spring Boot: /static/css/images/top_image_1920.jpg
-  */
 .top_img {
 	width: 100%;
 	height: 150px;
 	background-image: url('/css/images/top_img.png');
+	background-position: center;
 	background-repeat: no-repeat;
-	background-position: center; /* 이미지를 가운데로 정렬 */
-	margin-bottom: 2px;
 	text-align: center;
 }
 
@@ -37,40 +36,179 @@
 	position: relative; /* 속해 있는 부모 태그 기준 설정 */
 	top: 1%;
 	left: 0.5%;
-	color: #335C67;
+	color: #006400;
 	text-align: left;
-	font-size: 12px;
-	font-weight: 800px;
+	font-size: 10px;
 }
 
-.top_menu {
-	position: relative !important;
-	top: 88% !important;
-	background-color: #E09F3E !important;
-	color: #FFF3B0 !important;
-	padding-top: 6px !important;
-	padding-left: 20px;
-	height: 24px !important;
-	text-align: center !important;
-	height: 25px !important;
-	font-weight: 800px;
+.title_line {
+	text-align: left;
+	width: 100%;
+	margin: 30px auto;
+	font-size: 24px;
+	color: #EC9704;
+	border-bottom: 5px solid #B8860B;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
-/* 화면 상단 메뉴 세로 구분선
-     <span class='top_menu_sep'>&nbsp;</span> */
-.top_menu_sep {
-	background: url('/css/images/gray.jpg') center center no-repeat;
-	background-size: 1px;
-	width: 1px;
-	margin-left: 5px;
-	margin-right: 5px;
+.title_link:link { /* 방문전 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: #EC9704;
+	font-size: 24px;
+}
+
+.title_link:visited { /* 방문후 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: #EC9704;
+	font-size: 24px;
+}
+
+.title_link:hover { /* A 태그에 마우스가 올라간 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: #1E90FF;
+	font-size: 24px;
+}
+
+.title_link:active { /* A 태그를 클릭한 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: #1E90FF;
+	font-size: 24px;
 }
 
 .menu_line {
 	width: 100%;
-	border-bottom: dotted 1px #777777;
-	margin: 20px 0px 10px 0px; /* top -> right -> bottom -> left */
+	border-bottom: 3px dotted #9C4A1A;
+	margin: 15px 0; /* 상단과 하단만 지정 */
 	clear: both;
+}
+
+.menu_link:link { /* 방문전 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: white;
+}
+
+.menu_link:visited { /* 방문후 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: white;
+}
+
+.menu_link:hover { /* A 태그에 마우스가 올라간 상태 */
+	text-decoration: underline; /* 밑줄 출력 */
+	color: white;
+}
+
+.menu_link:active { /* A 태그를 클릭한 상태 */
+	text-decoration: underline; /* 밑줄 출력 */
+	color: white;
+}
+
+a:link { /* 방문전 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: #A78B71;
+}
+
+a:visited { /* 방문후 상태 */
+	text-decoration: none; /* 밑줄 삭제 */
+	color: #A78B71;
+}
+
+a:hover { /* A 태그에 마우스가 올라간 상태 */
+	text-decoration: underline; /* 밑줄 출력 */
+	color: #1E90FF;
+}
+
+a:active { /* A 태그를 클릭한 상태 */
+	text-decoration: underline; /* 밑줄 출력 */
+	color: #1E90FF;
+}
+
+body {
+	padding: 0.5em;
+	background: #F8F8FF;
+}
+
+table {
+	border: 1px #DEB887 solid;
+	font-size: .9em;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+	width: 100%;
+	border-collapse: collapse;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+th {
+	color: #F8F8FF;
+	font-size: 16px;
+}
+
+thead {
+	color: #F8F8FF;
+	background: #DEB887;
+}
+
+td, th {
+	padding: 0.8em 0.5em;
+	vertical-align: middle;
+	font-size: 15px;
+}
+
+td {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	background: #F8F8FF;
+	font-size: 15px;
+}
+
+a {
+	color: #A78B71;
+	font-size: 15px;
+}
+
+@media all and (max-width: 768px) {
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+	th {
+		text-align: right;
+	}
+	table {
+		position: relative;
+		padding-bottom: 0;
+		border: none;
+		box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+	}
+	thead {
+		float: left;
+		white-space: nowrap;
+	}
+	tbody {
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
+		white-space: nowrap;
+	}
+	tr {
+		display: inline-block;
+		vertical-align: top;
+	}
+	th {
+		border-bottom: 1px solid #a39485;
+		color: #FFFAFA;
+	}
+	td {
+		border-bottom: 1px solid #e5e5e5;
+	}
+}
+
+.td_left {
+	border-top: none;
+	border-right: none;
+	border-bottom: solid 1px #DDDDDD;
+	border-left: none;
+	text-align: left;
+	padding-left: 20px;
+	font-size: 12px;
 }
 
 .left_menu {
@@ -81,6 +219,13 @@
 .content {
 	width: 90%;
 	margin: 10px auto;
+}
+
+.content_line {
+	width: 100%;
+	border-bottom: 1px solid #2F4F4F;
+	margin: 10px 0; /* 상단과 하단만 지정 */
+	clear: both;
 }
 
 .content_body {
@@ -110,6 +255,13 @@
 	clear: both; /* 앞쪽 태그의 float 효과를 제거함. */
 }
 
+.bottom_line {
+	width: 100%;
+	border-bottom: 3px dotted #9C4A1A;
+	margin: 10px 0; /* 상단과 하단만 지정 */
+	clear: both;
+}
+
 .aside_left {
 	float: left;
 	font-size: 1.3em;
@@ -131,7 +283,7 @@
 
 /* ASIDE 메뉴 세로 구분선 */
 .menu_divide { /* 서브 메뉴의 세로 구분선 */
-	color: #777777;
+	color: #696969;
 	font-size: 0.8em; /* 부모 글자 크기에 비해서 80%로 출력 */
 	vertical-align: 10%; /* 0%는 bottom 기준 */
 }
@@ -145,7 +297,7 @@
 
 .li_none {
 	list-style: none;
-	margin: 15px 10px;
+	/* margin: 15px 10px; */
 }
 
 .li_none_left {
@@ -206,147 +358,9 @@
 	padding-left: 2px;
 }
 
-.title_line {
-	text-align: left;
-	border-bottom: solid 3px #E09F3E;
-	width: 100%;
-	margin: 20px auto;
-	font-size: 20px;
-}
-
-.title_link:link { /* 방문전 상태 */
-	font-size: 20px;
-	text-decoration: none; /* 밑줄 삭제 */
-}
-
-.title_link:visited { /* 방문후 상태 */
-	font-size: 20px;
-	text-decoration: none; /* 밑줄 삭제 */
-}
-
-.title_link:hover { /* A 태그에 마우스가 올라간 상태 */
-	font-size: 20px;
-	text-decoration: none; /* 밑줄 삭제 */
-}
-
-.title_link:active { /* A 태그를 클릭한 상태 */
-	font-size: 20px;
-	text-decoration: none; /* 밑줄 삭제 */
-}
-
 .sub_menu {
 	text-align: right;
 	width: 100%;
-}
-
-.table_basic {
-	border-collapse: collapse;
-	margin: 2px auto;
-	width: 100%;
-}
-
-/* 1em 기본값 : 16px, 주변 태그의 글자크기를 1em으로 인식
-      DIV 태그가 20px 일경우 자식태그가 0.5em이면 최종적으로 10px이 적용됨.
-      DIV 태그가 20px 일경우 자식태그가 1em이면 최종적으로 20px이 적용됨.
-      DIV 태그가 20px 일경우 자식태그가 1.5em이면 최종적으로 30px이 적용됨.
-  */
-.th_basic {
-	font-size: 0.8em;
-	border-bottom: solid 3px #DDDDDD;
-}
-
-.th_bs {
-	text-align: center;
-}
-
-.td_basic {
-	border-top: none;
-	border-right: none;
-	border-bottom: solid 1px #DDDDDD;
-	border-left: none;
-	text-align: center;
-}
-
-.td_left {
-	border-top: none;
-	border-right: none;
-	border-bottom: solid 1px #DDDDDD;
-	border-left: none;
-	text-align: left;
-}
-
-.td_bs {
-	text-align: center;
-	vertical-align: middle;
-}
-
-.td_bs_left {
-	text-align: left;
-	vertical-align: middle;
-}
-
-a:link { /* 방문전 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: #555555;
-}
-
-a:visited { /* 방문후 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: #555555;
-}
-
-a:hover { /* A 태그에 마우스가 올라간 상태 */
-	text-decoration: underline; /* 밑줄 출력 */
-	color: #7777FF;
-}
-
-a:active { /* A 태그를 클릭한 상태 */
-	text-decoration: underline; /* 밑줄 출력 */
-	color: #7777FF;
-}
-
-.menu_link:link { /* 방문전 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: white;
-}
-
-.menu_link:visited { /* 방문후 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: white;
-}
-
-.menu_link:hover { /* A 태그에 마우스가 올라간 상태 */
-	text-decoration: underline; /* 밑줄 출력 */
-	color: white;
-}
-
-.menu_link:active { /* A 태그를 클릭한 상태 */
-	text-decoration: underline; /* 밑줄 출력 */
-	color: white;
-}
-
-.recom_link:link { /* 방문전 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: #555555;
-	font-size: 0.8em;
-}
-
-.recom_link:visited { /* 방문후 상태 */
-	text-decoration: none; /* 밑줄 삭제 */
-	color: #555555;
-	font-size: 0.8em;
-}
-
-.recom_link:hover { /* A 태그에 마우스가 올라간 상태 */
-	text-decoration: none; /* 밑줄 출력 */
-	color: #7777FF;
-	font-size: 0.8em;
-}
-
-.recom_link:active { /* A 태그를 클릭한 상태 */
-	text-decoration: none; /* 밑줄 출력 */
-	color: #7777FF;
-	font-size: 0.8em;
 }
 
 .content_title {
@@ -398,7 +412,6 @@ a:active { /* A 태그를 클릭한 상태 */
 
 /* 기타 메시지 */
 .message {
-	font-weight: bold;
 	width: 70%;
 	border: none;
 	margin: 30px auto;
@@ -417,7 +430,6 @@ a:active { /* A 태그를 클릭한 상태 */
 
 /* 주의 메시지 */
 .span_alert {
-	font-weight: bold;
 	color: #ffffff;
 	background-color: rgba(0, 0, 200, 0.6);
 	padding: 2px;
@@ -426,7 +438,6 @@ a:active { /* A 태그를 클릭한 상태 */
 
 /* 경고 메시지 */
 .span_warning {
-	font-weight: bold;
 	color: #FFFFFF;
 	background-color: rgba(255, 0, 0, 0.6);
 	padding: 2px;
@@ -434,19 +445,17 @@ a:active { /* A 태그를 클릭한 상태 */
 }
 
 .msg_warning {
-	font-weight: bold;
 	color: #FFFFFF;
-	background-color: rgba(255, 0, 0, 0.6);
-	padding: 2px;
+	background-color: #FF4500;
+	padding: 3px;
 	margin: 10px auto;
 	text-align: center;
-	width: 80%;
+	width: 70%;
 	margin-top: 2px;
 }
 
 /* 처리 성공 메시지 */
 .span_success {
-	font-weight: bold;
 	background: url('/css/images/url5.png') left center no-repeat;
 	background-size: 10px;
 	padding-top: 0px;
@@ -456,7 +465,6 @@ a:active { /* A 태그를 클릭한 상태 */
 
 /* 처리 실패 메시지 */
 .span_fail {
-	font-weight: bold;
 	background: url('/css/images/url8.png') left center no-repeat;
 	background-size: 10px;
 	padding-top: 0px;
@@ -479,7 +487,12 @@ a:active { /* A 태그를 클릭한 상태 */
 }
 
 .icon {
-	width: 20px;
+	width: 18px;
+	margin-right: 3px;
+}
+
+.icon_New {
+	width: 28px;
 }
 
 .form_input {
@@ -496,23 +509,29 @@ a:active { /* A 태그를 클릭한 상태 */
 .login_container {
 	display: flex;
 	align-items: center; /* 이미지와 폼을 수직 가운데 정렬합니다. */
-	background-color: rgba(51, 91, 103, 1.0);
+	background-color: #73685d;
+	border-radius: 10px;
 }
 
 .login_image {
 	flex: 1; /* 이미지 영역이 화면 폭의 1/2를 차지하도록 합니다. */
 	text-align: center; /* 이미지 내용을 가운데 정렬합니다. */
 	max-width: 50%; /* 이미지의 최대 너비를 50%로 제한합니다. */
+	border-radius: 10px;
 }
 
 .login_image img {
 	width: 100%; /* 이미지 너비를 100%로 설정하여 부모 요소의 크기에 맞게 조절됩니다. */
+	border-radius: 10px;
 }
 
 .login_bottom_menu {
-	display: flex;
+	margin-left: 45px;
+	justify-content: center; /* 가로 중앙 정렬을 위한 추가 속성 */
 }
 
 .login_bottom_menu button {
-	margin-right: 10px; /* 버튼 사이의 간격을 조절 (선택적) */
+	text-align: center;
+	width: 150px; /* 원하는 폭으로 조절하세요 */
+	height: 40px; /* 원하는 높이로 조절하세요 */
 }

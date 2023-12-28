@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,16 +11,16 @@
 <title>DeutschBlog Gallery</title>
 <link rel="shortcut icon" href="/images/festival.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
-<!-- /static 기준 -->
-<!-- Fotorama -->
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="/jquery/fotorama/fotorama.css" rel="stylesheet">
-<!-- /static 기준 -->
 <script src="/jquery/fotorama/fotorama.js"></script>
 </head>
+
 <body>
 	<c:import url="/menu/top.do" />
+	
 	<div class='title_line'>DeutschBlog Gallery</div>
+	
 	<div style='margin: 0px auto; width: 800px;'>
 		<!-- Fotorama data-ratio="100%/66%" -->
 		<div class="fotorama" data-autoplay="5000" data-nav="thumbs" data-ratio="800/520" data-width="100%">

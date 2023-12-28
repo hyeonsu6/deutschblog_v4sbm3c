@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, width=device-width" />
 <title>DeutschBlog</title>
-<link rel="shortcut icon" href="/images/germany.png" />
+<title>DeutschBlog German Message</title>
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -33,8 +33,8 @@
 				<li class='li_none'>회원 로그인에 실패했습니다.</li>
 				<li class='li_none'>ID 또는 패스워드가 일치하지 않습니다.</li>
 				<li class='li_none'>
-					<button type="button" id="btn_retry" class="btn btn-dark btn-sm">로그인 다시 시도</button>
-					<button type="button" id="btn_home" class="btn btn-dark btn-sm">확인</button>
+					<button type="button" id="btn_retry" class="btn btn-outline-warning btn-sm">로그인 다시 시도</button>
+					<button type="button" id="btn_home" class="btn btn-outline-warning btn-sm">확인</button>
 				</li>
 			</ul>
 		</fieldset>

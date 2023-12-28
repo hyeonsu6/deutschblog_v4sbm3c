@@ -24,6 +24,13 @@ public class TopicProc implements TopicProcInter {
 
 		return list;
 	}
+	
+	@Override
+	public ArrayList<TopicVO> list_all_member() {
+		ArrayList<TopicVO> list = this.topicDAO.list_all();
+
+		return list;
+	}
 
 	@Override
 	public TopicVO read(int topicno) {

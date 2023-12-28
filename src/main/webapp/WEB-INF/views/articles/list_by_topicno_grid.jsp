@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, width=device-width" />
-<title>DeutschBlog</title>
+<title>DeutschBlog Articles</title>
 <link rel="shortcut icon" href="/images/germany.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
-
 </head>
+
 <body>
 	<c:import url="/menu/top.do" />
 
@@ -25,8 +25,8 @@
 
 	<aside class="aside_right">
 		<%-- 관리자로 로그인해야 메뉴가 출력됨 --%>
-		<c:if test="${sessionScope.admin_id != null }">
-			<a href="./create.do?topicno=${topicVO.topicno }">등록</a>
+		<c:if test="${sessionScope.manager_id != null }">
+			<a href="./create.do?topicno=${topicVO.topicno }">콘텐츠 등록</a>
 			<span class='menu_divide'>│</span>
 		</c:if>
 		<a href="javascript:location.reload();">새로고침</a>
@@ -43,19 +43,18 @@
 
 			<c:choose>
 				<c:when test="${param.word != '' }">
-					<%-- 검색하는 경우는 검색어를 출력 --%>
-					<input type='text' name='word' id='word' value='${param.word }'>
+					<%-- 검색하는 경우 --%>
+					<input type='text' name='word' id='word' value='${param.word }' class='input_word' placeholder=" 검색어를 검색해주세요!">
 				</c:when>
 				<c:otherwise>
 					<%-- 검색하지 않는 경우 --%>
-					<input type='text' name='word' id='word' value=''>
+					<input type='text' name='word' id='word' value='' class='input_word'>
 				</c:otherwise>
 			</c:choose>
-			<button type='submit' class='btn btn-dark btn-sm' style="padding: 2px 8px 3px 8px; margin: 0px 0px 2px 0px;">검색</button>
+			<button type='submit' class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">검색</button>
 			<c:if test="${param.word.length() > 0 }">
-				<%-- 검색 상태하면 '검색 취소' 버튼을 출력 --%>
-				<button type='button' class='btn btn-dark btn-sm' style="padding: 2px 8px 3px 8px; margin: 0px 0px 2px 0px;"
-					onclick="location.href='./list_by_topicno.do?topicno=${param.topicno}&word='">검색 취소</button>
+				<button type='button' class="btn btn-outline-warning btn-sm" style="background-color: #583E26;"
+					onclick="location.href='./list_by_topicno.do?topicno=${topicVO.topicno}&word='">검색 취소</button>
 			</c:if>
 		</form>
 	</div>
@@ -76,7 +75,7 @@
 			<!-- 5기준 하나의 이미지, 19.2 * 5 = 96% -->
 			<div
 				onclick="location.href='./read.do?articlesno=${articlesno}&word=${param.word }&now_page=${param.now_page == null ? 1 : param.now_page }&topicno=${param.topicno }'"
-				style='width: 15%; height: 170px; float: left; margin: 0.5%; padding: 0.5%; background-color: #9E2A2B; text-align: center; color: #FFF3B0; font-size: 18px; font-weight: bold; cursor: pointer;'>
+				style='width: 15%; height: 200px; float: left; margin: 0.5%; padding: 0.5%; background-color: #FFF8DC; text-align: center; color: #556B2F; font-size: 14px; cursor: pointer; border: 3px solid #8B4513; border-radius: 10px;'>
 
 				<c:choose>
 					<c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
@@ -89,7 +88,7 @@
 						<IMG src="/articles/images/none1.png" style="width: 100%; height: 120px;">
 					</c:otherwise>
 				</c:choose>
-				${title }
+				<br> <br> ${title }
 
 			</div>
 
@@ -102,11 +101,11 @@
 		</c:forEach>
 	</div>
 
+	<!-- <div class="content_line"></div> -->
 	<!-- 페이지 목록 출력 부분 시작 -->
-	<DIV class='bottom_menu'>${paging }</DIV>
+	<div class='bottom_menu'>${paging }</div>
 	<%-- 페이지 리스트 --%>
 	<!-- 페이지 목록 출력 부분 종료 -->
-
 	<jsp:include page="../menu/bottom.jsp" flush='false' />
 </body>
 </html>

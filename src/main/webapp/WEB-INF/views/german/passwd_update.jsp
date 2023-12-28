@@ -1,12 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, width=device-width" />
-<title>DeutschBlog</title>
+<meta name="viewport"
+	content="user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, width=device-width" />
+<title>DeutschBlog German</title>
 <link rel="shortcut icon" href="/images/germany.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -60,7 +62,7 @@
     });  
 
     // 처리중 출력
-    current_passwd_msg.innerHTML="<img src='/german/images/loading.png' style='width: 5%;'>"; // static 기준
+    current_passwd_msg.innerHTML="<img src='/german/images/ani04.gif' style='width: 30%;'>"; // static 기준
   }
   
 </script>
@@ -70,16 +72,13 @@
 	<DIV class='title_line'>회원 패스워드 변경</DIV>
 	<ASIDE class="aside_right">
 		<A href="javascript:location.reload();">새로고침</A>
-		<span class='menu_divide'>│</span>
-		<A href='./create.do'>회원 가입</A>
-		<span class='menu_divide'>│</span>
-		<A href='./list.do'>목록</A>
 	</ASIDE>
 	<div class='menu_line'></div>
 	<div style='width: 60%; margin: 0px auto;'>
 		<form name='frm' id='frm' method='POST' action='./passwd_update.do'>
 			<div class="form-floating mb-1 mt-3" style="width: 50%; margin: 0px auto;">
-				<input type="password" class="form-control" id="current_passwd" name="current_passwd" placeholder="현재 패스워드" autofocus="autofocus">
+				<input type="password" class="form-control" id="current_passwd" name="current_passwd" placeholder="현재 패스워드"
+					autofocus="autofocus">
 				<label for="current_passwd">현재 패스워드</label>
 			</div>
 			<div id='current_passwd_msg' style="width: 100%; text-align: center;"></div>
@@ -93,8 +92,9 @@
 			</div>
 			<div id='new_passwd2_msg' style="width: 100%; text-align: center;"></div>
 			<div class="bottom_menu">
-				<button type="button" id='btn_send' class="btn btn-primary btn-sm">변경</button>
-				<button type="button" onclick="history.back()" class="btn btn-primary btn-sm">취소</button>
+				<button type="button" id='btn_send' class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">변경</button>
+				<button type="button" onclick="history.back()" class="btn btn-outline-warning btn-sm"
+					style="background-color: #583E26;">취소</button>
 			</div>
 		</FORM>
 	</div>

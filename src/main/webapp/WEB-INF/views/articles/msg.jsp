@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, width=device-width" />
-<title>DeutschBlog</title>
+<title>DeutschBlog Articles Message</title>
 <link rel="shortcut icon" href="/images/germany.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 
@@ -59,12 +59,12 @@
 				</c:choose>
 				<li class='li_none'><br> <c:choose>
 						<c:when test="${cnt == 0 }">
-							<button type='button' onclick="history.back()" class="btn btn-primary btn-sm">다시 시도</button>
+							<button type='button' onclick="history.back()" class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">다시 시도</button>
 						</c:when>
 					</c:choose>
-					<button type='button' onclick="location.href='./create.do?topicno=${topicno}'" class="btn btn-primary btn-sm">새로운 컨텐츠 등록</button>
-					<button type='button' onclick="location.href='./list_by_topicno.do?topicno=${topicno}'" class="btn btn-primary btn-sm">목록</button>
-					<button type='button' onclick="location.href='./list_by_topicno_grid.do?topicno=${topicno}'" class="btn btn-primary btn-sm">갤러리 목록</button></li>
+					<button type='button' onclick="location.href='./create.do?topicno=${topicno}'" class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">새로운 컨텐츠 등록</button>
+					<button type='button' onclick="location.href='./list_by_topicno.do?topicno=${topicno}'" class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">목록</button>
+					<button type='button' onclick="location.href='./list_by_topicno_grid.do?topicno=${topicno}'" class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">갤러리 목록</button></li>
 			</UL>
 		</fieldset>
 	</DIV>

@@ -9,14 +9,17 @@
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, width=device-width" />
 <meta charset="UTF-8">
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, width=device-width" />
-<title>DeutschBlog</title>
+<title>DeutschBlog Login</title>
 <link rel="shortcut icon" href="/images/germany.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 </head>
+
 <body>
 	<c:import url="/menu/top.do" />
-	<DIV class='title_line'>알림</DIV>
-	<DIV class='message'>
+	
+	<div class='title_line'>관리자 로그인</div>
+	
+	<div class='message'>
 		<fieldset class='fieldset_basic'>
 			<ul>
 				<li class='li_none'>관리자 로그인에 실패했습니다.</li>
@@ -27,7 +30,7 @@
 				</li>
 			</ul>
 		</fieldset>
-	</DIV>
+	</div>
 	<jsp:include page="../menu/bottom.jsp" flush='false' />
 </body>
 </html>
