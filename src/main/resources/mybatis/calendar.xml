@@ -2,58 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dev.mvc.cal.CalDAOInter">
-
-	<!-- 목록 -->
-	<select id="callist" resultType="dev.mvc.cal.CalVO">
-		SELECT SEQ, ID, TITLE, CONTENT, RDATE, WDATE
-		FROM (SELECT ROW_NUMBER()OVER(PARTITION BY SUBSTR(RDATE, 1, 8)ORDER BY RDATE ASC) AS RNUM,
-		SEQ, ID, TITLE, CONTENT, RDATE, WDATE
-		FROM CALENDAR
-		WHERE ID=#{id} AND SUBSTR(RDATE, 1, 6)=#{yyyyMM} )
-		WHERE RNUM BETWEEN 1 AND 3
-	</select>
-
-	<!--목록 순서 -->
-	<select id="detail" parameterType="int" resultType="dev.mvc.cal.CalVO">
-		SELECT * FROM CALENDAR
-		WHERE SEQ=#{seq}
-	</select>
-
-	<!-- 글쓰기 -->
-	<insert id="write" parameterType="dev.mvc.cal.CalVO">
-		INSERT INTO CALENDAR(SEQ, ID, TITLE, CONTENT, RDATE, WDATE)
-		VALUES(SEQ_CAL.NEXTVAL, #{id}, #{title},
-		#{content}, #{rdate}, SYSDATE)
+	<!-- 등록 -->
+	<insert id="create" parameterType="dev.mvc.cal.CalVO">
+		INSERT INTO CALENDAR (calno, title, memo, calstart, calend)
+		VALUES (CALENDAR_SEQ.NEXTVAL, #{title},
+		#{memo}, #{calstart}, #{calend})
 	</insert>
-
-	<!-- 글삭제 -->
-	<delete id="delete" parameterType="int">
-		DELETE FROM CALENDAR
-		WHERE SEQ=#{seq}
-	</delete>
-
-	<!-- 글수정 -->
+	<!-- 전체 목록 -->
+	<select id="list_all" resultType="dev.mvc.cal.CalVO">
+		SELECT * FROM CALENDAR
+	</select>
+	<!-- 전체 목록 (달력형) -->
+	<select id="list_all_calendar" resultType="dev.mvc.cal.CalVO">
+		SELECT * FROM CALENDAR
+	</select>
+	<!-- 조회 -->
+	<select id="read" resultType="dev.mvc.cal.CalVO" parameterType="int">
+		SELECT calno, title, memo, calstart, calend
+		FROM CALENDAR
+		WHERE calno=#{calno}
+	</select>
+	<!-- 수정 -->
 	<update id="update" parameterType="dev.mvc.cal.CalVO">
 		UPDATE CALENDAR
-		SET TITLE=#{title}, CONTENT=#{content}, RDATE =#{rdate}
-		WHERE SEQ=#{seq}
+		SET title = #{title}, memo = #{memo},
+		calstart = #{calstart},
+		calend = #{calend}
+		WHERE calno = #{calno}
 	</update>
-
-	<!-- 하루 일정 -->
-	<select id="daylist" resultType="dev.mvc.cal.CalVO">
-		SELECT SEQ, ID, TITLE, CONTENT, RDATE, WDATE
-		FROM
-		(SELECT
-		ROW_NUMBER()OVER(PARTITION BY SUBSTR(RDATE,
-		1, 8)ORDER BY RDATE ASC) AS RNUM,
-		SEQ, ID, TITLE, CONTENT, RDATE, WDATE
-		FROM CALENDAR
-		WHERE
-		ID=#{id} AND SUBSTR(RDATE, 1, 8)=#{yyyyMMdd} )
-		ORDER BY RDATE ASC
-	</select>
-
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM CALENDAR WHERE calno = #{calno}
+	</delete>
 </mapper>
-
-
-

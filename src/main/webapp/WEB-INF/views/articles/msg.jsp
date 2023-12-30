@@ -10,8 +10,8 @@
 <title>DeutschBlog Articles Message</title>
 <link rel="shortcut icon" href="/images/germany.png" />
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
-
 </head>
+
 <body>
 	<c:import url="/menu/top.do" />
 	<DIV class='title_line'>알림</DIV>

@@ -1,72 +1,55 @@
 package dev.mvc.cal;
 
-import java.util.Date;
-
 public class CalVO {
-	/*
-	 *
-	SEQ NUMBER PRIMARY KEY,
-    ID VARCHAR2(50) NOT NULL,
-    TITLE VARCHAR2(100) NOT NULL,
-    CONTENT VARCHAR2(4000),
-    RDATE VARCHAR2(8) NOT NULL,
-    WDATE DATE
-	 */
-	
-    private int seq;
-    private String id;
-    private String title;
-    private String content;
-    private String rdate;
-    private Date wdate;
+	private int calno;
+	private String title;
+	private String memo;
+	private String calstart;
+	private String calend;
 
-    // 생성자, Getter, Setter 메서드는 필요에 따라 추가할 수 있습니다.
+	public int getCalno() {
+		return calno;
+	}
 
-    public int getSeq() {
-        return seq;
-    }
+	public void setCalno(int calno) {
+		this.calno = calno;
+	}
 
-    public void setSeq(int seq) {
-        this.seq = seq;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getMemo() {
+		return memo;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public String getCalstart() {
+		return calstart;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setCalstart(String calstart) {
+		this.calstart = calstart;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public String getCalend() {
+		return calend;
+	}
 
-    public String getRdate() {
-        return rdate;
-    }
+	public void setCalend(String calend) {
+		this.calend = calend;
+	}
 
-    public void setRdate(String rdate) {
-        this.rdate = rdate;
-    }
-
-    public Date getWdate() {
-        return wdate;
-    }
-
-    public void setWdate(Date wdate) {
-        this.wdate = wdate;
-    }
+	@Override
+	public String toString() {
+		return "CalVO [calno=" + calno + ", title=" + title + ", memo=" + memo + ", calstart=" + calstart + ", calend="
+				+ calend + "]";
+	}
 }

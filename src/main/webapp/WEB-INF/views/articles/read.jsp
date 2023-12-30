@@ -36,7 +36,6 @@
 		<a
 			href="./read.do?articlesno=${articlesno }&word=${param.word }&now_page=${param.now_page }&topicno=${topicVO.topicno }"
 			class='title_link'>${title }</a>
-		> 콘텐츠 파일 수정
 	</div>
 
 	<aside class="aside_right">

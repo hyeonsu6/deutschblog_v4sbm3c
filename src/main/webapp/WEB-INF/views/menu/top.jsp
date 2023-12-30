@@ -34,7 +34,7 @@
 </style>
 
 <div class='container_main'>
-	<div style="text-align: right; margin-top: 10px; margin-right: 5px; margin-bottom: 5px;">
+	<div style="text-align: right; margin-right: 5px;">
 		<c:choose>
 			<c:when test="${sessionScope.id == null}">
 				<a class="nav-link top_menu_link" href="/german/login.do" style="display: inline-block;">로그인</a>
@@ -48,7 +48,7 @@
 	</div>
 
 	<nav class="navbar navbar-expand-md navbar-dark"
-		style="background-color: #FDF5E6; padding-left: 120px; border-top: 2px solid #583E26; border-bottom: 3px solid #583E26; border-radius: 10px;">
+		style="background-color: #FDF5E6; padding-left: 60px; border-top: 2px solid #583E26; border-bottom: 3px solid #583E26; border-radius: 10px;">
 		<a class="navbar-brand" href="/">
 			<img src='/css/images/home.png' title="시작페이지" style='display: block; margin-left: 15px; padding-left: 3px;'
 				class='icon_n'>
@@ -72,7 +72,12 @@
 
 				<li class="nav-item">
 					<%-- 서브 메뉴가 없는 독립메뉴 --%>
-					<a class="nav-link top_menu_link" href="/topic/list_all_member.do">카테고리</a>
+					<a class="nav-link top_menu_link" href="/topic/list_all_member.do">카테고리🗂️</a>
+				</li>
+
+				<li class="nav-item">
+					<%-- 서브 메뉴가 없는 독립메뉴 --%>
+					<a class="nav-link top_menu_link" href='/calendar/list_all_calendar.do'>Calendar📅</a>
 				</li>
 
 				<c:choose>
@@ -88,6 +93,8 @@
 							<div class="dropdown-menu top_menu_link">
 								<a class="dropdown-item top_menu_link" href='/topic/list_all.do'>[관리자] 전체 카테고리 목록</a>
 								<a class="dropdown-item top_menu_link" href='/articles/list_all.do'>[관리자] 전체 컨텐츠 목록</a>
+								<a class="dropdown-item top_menu_link" href='/calendar/create.do'>[관리자] Calendar 등록</a>
+								<a class="dropdown-item top_menu_link" href='/calendar/list_all.do'>[관리자] Calendar 목록</a>
 								<a class="dropdown-item top_menu_link" href="/articles/list_all_gallery.do">[관리자] 🖼️ 컨텐츠 갤러리</a>
 								<a class="dropdown-item top_menu_link" href='/german/list.do'>[관리자] 회원 목록</a>
 								<a class="dropdown-item top_menu_link" href='/login/list_all_alogin.do'>[관리자] 로그인 내역</a>
