@@ -57,7 +57,7 @@
 	<div class='menu_line'></div>
 	<%--등록 폼 --%>
 	<form name='frm_youtube' method='POST' action='./youtube.do'>
-		<input type="hidden" name="contentsno" value="${param.contentsno }">
+		<input type="hidden" name="articlesno" value="${param.articlesno }">
 
 		<div>
 			<label>Youtube 스크립트</label>

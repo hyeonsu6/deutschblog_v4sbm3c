@@ -72,23 +72,19 @@
 			<label>제목</label>
 			<input type='text' name='title' value='${title }' required="required" autofocus="autofocus" class="form-control"
 				style='width: 100%; margin-bottom: 15px;'>
-			<br>
 		</div>
 		<div>
 			<label style="margin-bottom: 15px;">내용</label>
-			<textarea name='content' required="required" class="form-control" rows="8" style='width: 100%; margin-bottom: 15px;'>${content }</textarea>
-			<br>
+			<textarea name='article' required="required" class="form-control" rows="20" style='width: 100%; margin-bottom: 15px;'>${article }</textarea>
 		</div>
 		<div>
-			<label style="margin-bottom: 15px;">검색어</label>
+			<label>검색어</label>
 			<input type='text' name='word' value="${word }" required="required" class="form-control"
 				style='width: 100%; margin-bottom: 15px;'>
-			<br>
 		</div>
 		<div>
-			<label style="margin-bottom: 15px;">패스워드</label>
-			<input type='password' name='passwd' value='' required="required" class="form-control" style='width: 50%;'>
-
+			<label>패스워드</label>
+			<input type='password' name='pw' value='' required="required" class="form-control" style='width: 50%;'>
 		</div>
 		<div class="content_body_bottom">
 			<button type="submit" class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">저장</button>

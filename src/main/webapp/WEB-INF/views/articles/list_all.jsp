@@ -65,7 +65,7 @@
 						<span>${articlesVO.title }</span>
 						<br>
 						<c:choose>
-							<c:when test="${articlesVO.article.length() > 450 }">${articlesVO.article.substring(0, 450) }...</c:when>
+							<c:when test="${articlesVO.article.length() > 80 }">${articlesVO.article.substring(0, 80) }...</c:when>
 							<c:otherwise>
 								<span style="font-size: 0.9em;">${articlesVO.article }</span>
 							</c:otherwise>

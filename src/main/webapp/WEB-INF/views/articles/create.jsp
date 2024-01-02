@@ -64,32 +64,27 @@
 			<input type='text' name='title' value='' required="required" autofocus="autofocus" class="form-control"
 				style='width: 100%; margin-bottom: 15px;'>
 		</div>
-
 		<div>
 			<label>내용</label>
-			<textarea name='content' required="required" class="form-control" rows="8" style='width: 100%; margin-bottom: 15px;'></textarea>
+			<textarea name='article' required="required" class="form-control" rows="20" style='width: 100%; margin-bottom: 15px;'></textarea>
 		</div>
-
 		<div>
 			<label>검색어</label>
 			<input type='text' name='word' value='' required="required" class="form-control"
 				style='width: 100%; margin-bottom: 15px;'>
 		</div>
-
 		<div>
 			<label>이미지</label>
 			<input type='file' class="form-control" name='file1MF' id='file1MF' value='' placeholder="파일 선택"
 				style='margin-bottom: 15px;'>
 		</div>
-
 		<div>
 			<label>패스워드</label>
-			<input type='password' name='passwd' value='' required="required" class="form-control" style='width: 50%;'>
+			<input type='password' name='pw' value='' required="required" class="form-control" style='width: 50%;'>
 		</div>
-
 		<div class="content_body_bottom">
 			<button type="submit" class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">콘텐츠 등록</button>
-			<button type="button" onclick="location.href='./list_by_topicno_search_paging.do?topicno=${param.topicno}'"
+			<button type="button" onclick="location.href='./list_by_topicno.do?topicno=${param.topicno}'"
 				class="btn btn-outline-warning btn-sm" style="background-color: #583E26;">콘텐츠 목록</button>
 		</div>
 

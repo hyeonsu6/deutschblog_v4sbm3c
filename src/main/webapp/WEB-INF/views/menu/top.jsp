@@ -14,13 +14,13 @@
 .top_menu_link:link, .top_menu_link:visited {
 	text-decoration: none;
 	color: #583E26;
-	font-size: 17px;
+	font-size: 16px;
 }
 
 .top_menu_link:hover {
 	text-decoration: blink;
 	color: #EC9704;
-	font-size: 19px;
+	font-size: 17px;
 }
 
 .navbar-brand img {
@@ -48,7 +48,7 @@
 	</div>
 
 	<nav class="navbar navbar-expand-md navbar-dark"
-		style="background-color: #FDF5E6; padding-left: 60px; border-top: 2px solid #583E26; border-bottom: 3px solid #583E26; border-radius: 10px;">
+		style="background-color: #FDF5E6; padding-left:2%; border-top: 2px solid #583E26; border-bottom: 3px solid #583E26; border-radius: 10px;">
 		<a class="navbar-brand" href="/">
 			<img src='/css/images/home.png' title="시작페이지" style='display: block; margin-left: 15px; padding-left: 3px;'
 				class='icon_n'>

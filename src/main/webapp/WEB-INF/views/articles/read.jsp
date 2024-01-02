@@ -95,7 +95,7 @@
 	<fieldset class="fieldset_basic">
 		<ul>
 			<li class="li_none">
-				<div style="width: 100%; word-break: break-all;">
+				<div style="width: 100%; word-break: break-all; margin-left: 20%;">
 
 					<span style="font-size: 28px; margin-right: 5px;">🟡 ${title}</span>
 					<span style="font-size: 0.6em; margin-right: 50px;">| 🔔 등록일: (${gdate.substring(0, 10)})</span>
@@ -104,31 +104,28 @@
 				</div>
 			</li>
 
-			<c:choose>
-				<c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
-					<%-- /static/articles/storage/ --%>
-					<div style="text-align: center; margin-bottom: 10px;">
-						<img src="/articles/storage/${file1saved }"
-							style='width: 35%; margin: 0 auto; margin-top: 0.5%; margin-right: 5%;'>
-					</div>
-
-				</c:when>
-				<c:otherwise>
-					<!-- 기본 이미지 출력 -->
-					<img src="/articles/images/none1.png"
-						style='width: 35%; display: block; margin: 0 auto; margin-top: 0.5%; margin-right: 5%;'>
-				</c:otherwise>
-			</c:choose>
-
-			<li class="li_none" style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+			<li class="li_none" style="text-align: center; clear: both; padding-top: 5px; padding-bottom: 5px;">
 				<c:if test="${youtube.trim().length() > 0 }">
-					<div style="text-align: center; margin-right: 10px;">${youtube }
+					<div style="text-align: center;">${youtube }
 						<c:if test="${map.trim().length() > 0 }">
-							<div style="text-align: center; margin-right: 10px;">${map }</div>
+							<div style="text-align: center;">${map }</div>
 						</c:if>
 					</div>
 				</c:if>
 			</li>
+
+			<c:choose>
+				<c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
+					<%-- /static/articles/storage/ --%>
+					<div style="text-align: center; margin-bottom: 10px;">
+						<img src="/articles/storage/${file1saved }" style='width: 70%; margin: 0 auto; margin-top: 0.5%;'>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<!-- 기본 이미지 출력 -->
+					<img src="/articles/images/none1.png" style='width: 40%; display: block; margin: 0 auto; margin-top: 0.5%;'>
+				</c:otherwise>
+			</c:choose>
 
 			<li class="li_none" style="clear: both;">
 				<br>

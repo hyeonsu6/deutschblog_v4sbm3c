@@ -25,7 +25,7 @@
 
 	<aside class="aside_right">
 		<%-- 관리자로 로그인해야 메뉴가 출력됨 --%>
-		<c:if test="${sessionScope.admin_id != null }">
+		<c:if test="${sessionScope.manager_id != null }">
 			<a href="./create.do?topicno=${topicVO.topicno }">컨텐츠 등록</a>
 			<span class='menu_divide'>│</span>
 		</c:if>
@@ -110,7 +110,7 @@
 						</a>
 
 						<c:choose>
-							<c:when test="${articlesVO.article.length() > 420 }">${articlesVO.article.substring(0, 420) }...</c:when>
+							<c:when test="${articlesVO.article.length() > 80 }">${articlesVO.article.substring(0, 80) }...</c:when>
 							<c:otherwise>
 								<span style="font-size: 0.9em;">${articlesVO.article}</span>
 								<br>
