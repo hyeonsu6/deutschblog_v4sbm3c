@@ -24,7 +24,7 @@ public class ManagerContRest {
 
   /**
    * Cookie 기반 로그인 처리
-   * http://localhost:9091/manager/login_rest.do
+   * http://localhost:9092/manager/login_rest.do
    {
      
    }
@@ -38,15 +38,15 @@ public class ManagerContRest {
     int cnt = managerProc.login(managerVO);
     if (cnt == 1) { // 로그인 성공시 회원 정보 조회
       ManagerVO managerVO_read = managerProc.read_by_id(managerVO.getId()); // DBMS에서 id를 이용한 회원 조회
-      session.setAttribute("managerno", managerVO_read.getManagerno()); // 서버의 메모리에 기록
-      session.setAttribute("manager_id", managerVO_read.getId());
-      session.setAttribute("manager_mname", managerVO_read.getMname());
-      session.setAttribute("manager_grade", managerVO_read.getGrade());
+//      session.setAttribute("managerno", managerVO_read.getManagerno()); // 서버의 메모리에 기록
+//      session.setAttribute("manager_id", managerVO_read.getId());
+//      session.setAttribute("manager_mname", managerVO_read.getMname());
+//      session.setAttribute("manager_grade", managerVO_read.getGrade());
 
-      json.put("sw", "true");
+      json.put("sw", true);
       json.put("managerno", managerVO_read.getManagerno());
     } else {
-      json.put("sw", "false");
+      json.put("sw", false);
     }
 
     return json.toString();
@@ -54,18 +54,18 @@ public class ManagerContRest {
   
   /**
    * 로그아웃 처리
-   * http://localhost:9091/manager/logout_rest.do 
+   * http://localhost:9092/manager/logout_rest.do 
    * @param session
    * @return
    */
   @GetMapping(path="/manager/logout_rest.do")
   public String logout(HttpSession session){
     
-    session.invalidate(); // 모든 session 변수 삭제
+//    session.invalidate(); // 모든 session 변수 삭제
     
     JSONObject json = new JSONObject();
 
-    json.put("logout", "true");
+    json.put("logout", true);
          
     return json.toString();
   }
